@@ -7,6 +7,9 @@ import org.example.crm.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class ItemServiceImpl implements ItemService {
     @Autowired
@@ -23,4 +26,16 @@ public class ItemServiceImpl implements ItemService {
         return objectMapper.convertValue(save, Item.class);
 
     }
+
+    @Override
+    public List<Item> getItems() {
+
+        Iterable<ItemEntity> all = itemRepository.findAll();
+        List<Item> items = new ArrayList<>();
+        all.forEach(itemEntity -> {
+            items.add(objectMapper.convertValue(itemEntity, Item.class));
+        });
+        return items;
+    }
+
 }
