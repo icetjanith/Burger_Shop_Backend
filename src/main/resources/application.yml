@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:mysql://198.37.102.12:3306/vibeshee_springboot
-    username: vibeshee_spring
-    password: BANK5155ks@1
+    url: jdbc:mysql://localhost:3306/burger_shop
+    username: root
+    password: 12345
   jpa:
    hibernate:
      ddl-auto: update
